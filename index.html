@@ -5,15 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
 @font-face {
     font-family: 'Lovelace';
-    src: url('Lovelace-ExtraLight.ttf');
+    src: url('Lovelace.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Ceremonious';
-    src: url('CeremoniousOne-Regular.ttf');
+    src: url('Ceremonious.woff2') format('woff2');
 }
 
 body {
@@ -28,10 +27,8 @@ body {
     width: 390px;
     background: white;
     padding: 25px 18px;
-    position: relative;
 }
 
-/* Заголовки */
 .section-title {
     font-family: 'Ceremonious';
     font-size: 36px;
@@ -39,18 +36,48 @@ body {
     margin: 30px 0 10px;
 }
 
-/* Декор за фото */
+.main-title {
+    font-family: 'Ceremonious';
+    font-size: 42px;
+    text-align: center;
+}
+
+.letter {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(10px);
+    animation: letterFade 0.6s forwards;
+}
+
+@keyframes letterFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-bg {
     position: absolute;
-    top: -40px;
-    left: 0;
-    width: 100%;
-    opacity: 0.25;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130%;
+    opacity: 0.3;
     z-index: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
 }
 
 .polaroid {
@@ -81,13 +108,11 @@ body {
     margin-top: 10px;
 }
 
-/* Дата */
 .date {
     text-align: center;
     font-size: 26px;
 }
 
-/* Таймер */
 .timer {
     text-align: center;
     margin: 20px 0;
@@ -108,7 +133,6 @@ body {
     font-size: 22px;
 }
 
-/* Текст */
 .text {
     text-align: center;
     font-size: 15px;
@@ -123,7 +147,6 @@ body {
     transform: translateY(0);
 }
 
-/* Программа */
 .timeline {
     text-align: center;
 }
@@ -134,7 +157,6 @@ body {
     margin-top: 10px;
 }
 
-/* Пожелания */
 .wish-box {
     background: #f3f1ee;
     padding: 15px;
@@ -143,13 +165,25 @@ body {
     font-size: 14px;
 }
 
-/* Кнопки */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    font-family: 'Lovelace';
+}
+
+.label {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
 .button {
     background: #6e6258;
     color: white;
     padding: 15px;
     text-align: center;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .map-btn {
@@ -159,23 +193,14 @@ body {
     text-align: center;
     margin-top: 10px;
 }
-
-/* Форма */
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    font-family: 'Lovelace';
-}
-
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-<!-- HERO -->
+<div class="main-title">Wedding day</div>
+
 <div class="hero">
 <img src="wedd.png" class="hero-bg">
 
@@ -187,7 +212,6 @@ input, select {
 
 <div class="date">26.06.2026</div>
 
-<!-- Таймер -->
 <div class="timer">
 <div class="timer-grid">
 <div><span id="d"></span><p>дней</p></div>
@@ -197,15 +221,13 @@ input, select {
 </div>
 </div>
 
-<!-- ТЕКСТ -->
 <div class="section-title">Дорогие гости</div>
 
 <div class="text fade">
-Мы будем счастливы разделить с вами радость неповторимого для нас дня - дня нашей свадьбы!  
-Приглашаем вас присоединиться к нашему празднику и украсить его своим присутствием 26-го июня!
+Мы будем счастливы разделить с вами радость нашего свадебного дня!<br>
+Приглашаем вас присоединиться к нашему празднику 26 июня!
 </div>
 
-<!-- МЕСТО -->
 <div class="section-title">Место проведения</div>
 
 <div class="polaroid fade">
@@ -213,15 +235,15 @@ input, select {
 </div>
 
 <div class="text">
-ул. Лазурная 39, ст 1<br>
-Терраса номер 3 / купол
+г. Владивосток<br>
+ул. Лазурная 39<br>
+Терраса №3 / купол
 </div>
 
-<a href="https://yandex.ru/maps/?text=ул. Лазурная 39" target="_blank">
+<a href="https://yandex.ru/maps/?text=Владивосток Лазурная 39" target="_blank">
 <div class="map-btn">Открыть в Яндекс Картах</div>
 </a>
 
-<!-- ПРОГРАММА -->
 <div class="section-title">Программа</div>
 
 <div class="timeline">
@@ -234,30 +256,29 @@ input, select {
 <img src="photo5.jpg">
 </div>
 
-<!-- ПОЖЕЛАНИЯ -->
 <div class="section-title">Пожелания</div>
+
 <div class="wish-box">
-Мы не будем оригинальными, но будем практичными. Лучший для нас подарок — это ваша денежная инвестиция в нашу молодую семью.<br><br>
-Просим не отягощать себя выбором цветов, наилучший подарок для нас — это ваше присутствие и тёплые слова.<br><br>
-Будем благодарны за сохранение уютного семейного вечера и отсутствие криков "Горько"
+Лучший подарок — ваше присутствие и поддержка 💛<br><br>
+Будем благодарны за уютную атмосферу и отсутствие криков "Горько"
 </div>
 
-<!-- АНКЕТА -->
 <div class="section-title">Анкета гостя</div>
 
 <div class="text">
-Мы очень стараемся сделать праздник незабываемым, поэтому будем рады, если вы подтвердите своё присутствие и заполните анкету ниже, чтобы мы учли все детали
+Пожалуйста, подтвердите своё присутствие
 </div>
 
 <form id="form">
-
 <input name="name" placeholder="Ваше имя" required>
 
+<div class="label">Вы придёте?</div>
 <select name="attend">
 <option>Да</option>
 <option>Нет</option>
 </select>
 
+<div class="label">Сколько вас будет?</div>
 <select name="count">
 <option>1</option>
 <option>2</option>
@@ -265,6 +286,7 @@ input, select {
 <option>4</option>
 </select>
 
+<div class="label">Выбор алкоголя</div>
 <select name="alcohol">
 <option>Вино белое</option>
 <option>Вино красное</option>
@@ -273,14 +295,11 @@ input, select {
 </select>
 
 <div class="button" onclick="send()">Отправить</div>
-
 </form>
 
 </div>
 
 <script>
-
-/* Таймер */
 const date = new Date("2026-06-26T17:00:00");
 
 setInterval(()=>{
@@ -293,7 +312,6 @@ m.innerHTML = Math.floor(diff/(1000*60)%60);
 s.innerHTML = Math.floor(diff/1000%60);
 },1000);
 
-/* Анимация */
 const fades = document.querySelectorAll('.fade');
 window.addEventListener('scroll', ()=>{
 fades.forEach(el=>{
@@ -303,9 +321,26 @@ el.classList.add('visible');
 });
 });
 
-/* Отправка */
+function animateText(selector, delay = 40) {
+document.querySelectorAll(selector).forEach(el => {
+const text = el.innerText;
+el.innerHTML = "";
+
+[...text].forEach((letter, i) => {
+const span = document.createElement("span");
+span.className = "letter";
+span.style.animationDelay = (i * delay) + "ms";
+span.innerText = letter === " " ? "\u00A0" : letter;
+el.appendChild(span);
+});
+});
+}
+
+animateText(".main-title", 60);
+animateText(".section-title", 30);
+
 function send(){
-fetch("https://sheet.best/api/sheets/ВАШ_ID",{
+fetch("https://sheet.best/api/sheets/PUT_YOUR_ID_HERE",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
@@ -316,7 +351,6 @@ alcohol:form.alcohol.value
 })
 }).then(()=>alert("Ответ сохранён 💛"));
 }
-
 </script>
 
 </body>
