@@ -6,15 +6,14 @@
 
 <style>
 
-/* Подключение шрифтов */
 @font-face {
     font-family: 'Lovelace';
-    src: url('lovelace-extra-light.ttf');
+    src: url('Lovelace-ExtraLight.ttf');
 }
 
 @font-face {
     font-family: 'Ceremonious';
-    src: url('ceremonious-one.ttf');
+    src: url('CeremoniousOne-Regular.ttf');
 }
 
 body {
@@ -29,28 +28,29 @@ body {
     width: 390px;
     background: white;
     padding: 25px 18px;
+    position: relative;
 }
 
 /* Заголовки */
 .section-title {
-    font-family: 'Ceremonious', serif;
-    font-size: 34px;
+    font-family: 'Ceremonious';
+    font-size: 36px;
     text-align: center;
     margin: 30px 0 10px;
 }
 
-/* Блок с фоном */
+/* Декор за фото */
 .hero {
     position: relative;
 }
 
 .hero-bg {
     position: absolute;
-    width: 100%;
-    top: -30px;
+    top: -40px;
     left: 0;
+    width: 100%;
+    opacity: 0.25;
     z-index: 0;
-    opacity: 0.3;
 }
 
 .polaroid {
@@ -81,10 +81,10 @@ body {
     margin-top: 10px;
 }
 
+/* Дата */
 .date {
     text-align: center;
     font-size: 26px;
-    margin: 15px 0;
 }
 
 /* Таймер */
@@ -101,7 +101,7 @@ body {
 .timer-grid div {
     width: 23%;
     background: #f3f1ee;
-    padding: 10px 5px;
+    padding: 10px;
 }
 
 .timer-grid span {
@@ -112,7 +112,7 @@ body {
 .text {
     text-align: center;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.7;
     opacity: 0;
     transform: translateY(20px);
     transition: 0.8s;
@@ -150,7 +150,6 @@ body {
     padding: 15px;
     text-align: center;
     margin-top: 20px;
-    cursor: pointer;
 }
 
 .map-btn {
@@ -166,6 +165,7 @@ input, select {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
+    font-family: 'Lovelace';
 }
 
 </style>
@@ -180,7 +180,7 @@ input, select {
 <img src="wedd.png" class="hero-bg">
 
 <div class="polaroid fade">
-<img src="https://disk.yandex.ru/i/2UGyv-nuPAilZA">
+<img src="photo3.jpg">
 <div class="caption">Диана и Илья</div>
 </div>
 </div>
@@ -197,7 +197,7 @@ input, select {
 </div>
 </div>
 
-<!-- Дорогие гости -->
+<!-- ТЕКСТ -->
 <div class="section-title">Дорогие гости</div>
 
 <div class="text fade">
@@ -205,11 +205,11 @@ input, select {
 Приглашаем вас присоединиться к нашему празднику и украсить его своим присутствием 26-го июня!
 </div>
 
-<!-- Место -->
+<!-- МЕСТО -->
 <div class="section-title">Место проведения</div>
 
 <div class="polaroid fade">
-<img src="https://disk.yandex.ru/i/zOT-hQ6xyQa_qg">
+<img src="photo4.jpg">
 </div>
 
 <div class="text">
@@ -221,7 +221,7 @@ input, select {
 <div class="map-btn">Открыть в Яндекс Картах</div>
 </a>
 
-<!-- Программа -->
+<!-- ПРОГРАММА -->
 <div class="section-title">Программа</div>
 
 <div class="timeline">
@@ -230,12 +230,11 @@ input, select {
 <span>18:30</span> Банкет
 </div>
 
-<!-- Фото 5 -->
 <div class="polaroid fade">
-<img src="https://disk.yandex.ru/i/9qYi8fOlZ8N-ag">
+<img src="photo5.jpg">
 </div>
 
-<!-- Пожелания -->
+<!-- ПОЖЕЛАНИЯ -->
 <div class="section-title">Пожелания</div>
 <div class="wish-box">
 Мы не будем оригинальными, но будем практичными. Лучший для нас подарок — это ваша денежная инвестиция в нашу молодую семью.<br><br>
@@ -243,7 +242,7 @@ input, select {
 Будем благодарны за сохранение уютного семейного вечера и отсутствие криков "Горько"
 </div>
 
-<!-- Анкета -->
+<!-- АНКЕТА -->
 <div class="section-title">Анкета гостя</div>
 
 <div class="text">
@@ -288,10 +287,10 @@ setInterval(()=>{
 let now = new Date();
 let diff = date - now;
 
-document.getElementById("d").innerHTML = Math.floor(diff/(1000*60*60*24));
-document.getElementById("h").innerHTML = Math.floor(diff/(1000*60*60)%24);
-document.getElementById("m").innerHTML = Math.floor(diff/(1000*60)%60);
-document.getElementById("s").innerHTML = Math.floor(diff/1000%60);
+d.innerHTML = Math.floor(diff/(1000*60*60*24));
+h.innerHTML = Math.floor(diff/(1000*60*60)%24);
+m.innerHTML = Math.floor(diff/(1000*60)%60);
+s.innerHTML = Math.floor(diff/1000%60);
 },1000);
 
 /* Анимация */
@@ -306,8 +305,6 @@ el.classList.add('visible');
 
 /* Отправка */
 function send(){
-const form = document.getElementById("form");
-
 fetch("https://sheet.best/api/sheets/ВАШ_ID",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
