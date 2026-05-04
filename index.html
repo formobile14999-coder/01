@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'Lovelace';
+    src: url('lovelace-extra-light.ttf');
+}
+
+@font-face {
+    font-family: 'Ceremonious';
+    src: url('ceremonious-one.ttf');
+}
+
+body {
+    margin: 0;
+    background: #f6f5f3;
+    font-family: 'Lovelace', serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 390px;
+    background: white;
+    padding: 25px 18px;
+}
+
+/* Заголовки */
+.section-title {
+    font-family: 'Ceremonious', serif;
+    font-size: 34px;
+    text-align: center;
+    margin: 30px 0 10px;
+}
+
+/* Блок с фоном */
+.hero {
+    position: relative;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    top: -30px;
+    left: 0;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.polaroid {
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 90%;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.polaroid.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.polaroid img {
+    width: 100%;
+}
+
+.caption {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.date {
+    text-align: center;
+    font-size: 26px;
+    margin: 15px 0;
+}
+
+/* Таймер */
+.timer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.timer-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timer-grid div {
+    width: 23%;
+    background: #f3f1ee;
+    padding: 10px 5px;
+}
+
+.timer-grid span {
+    font-size: 22px;
+}
+
+/* Текст */
+.text {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s;
+}
+
+.text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Программа */
+.timeline {
+    text-align: center;
+}
+
+.timeline span {
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Пожелания */
+.wish-box {
+    background: #f3f1ee;
+    padding: 15px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Кнопки */
+.button {
+    background: #6e6258;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.map-btn {
+    background: black;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Форма */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+<img src="wedd.png" class="hero-bg">
+
+<div class="polaroid fade">
+<img src="https://disk.yandex.ru/i/2UGyv-nuPAilZA">
+<div class="caption">Диана и Илья</div>
+</div>
+</div>
+
+<div class="date">26.06.2026</div>
+
+<!-- Таймер -->
+<div class="timer">
+<div class="timer-grid">
+<div><span id="d"></span><p>дней</p></div>
+<div><span id="h"></span><p>часов</p></div>
+<div><span id="m"></span><p>минут</p></div>
+<div><span id="s"></span><p>секунд</p></div>
+</div>
+</div>
+
+<!-- Дорогие гости -->
+<div class="section-title">Дорогие гости</div>
+
+<div class="text fade">
+Мы будем счастливы разделить с вами радость неповторимого для нас дня - дня нашей свадьбы!  
+Приглашаем вас присоединиться к нашему празднику и украсить его своим присутствием 26-го июня!
+</div>
+
+<!-- Место -->
+<div class="section-title">Место проведения</div>
+
+<div class="polaroid fade">
+<img src="https://disk.yandex.ru/i/zOT-hQ6xyQa_qg">
+</div>
+
+<div class="text">
+ул. Лазурная 39, ст 1<br>
+Терраса номер 3 / купол
+</div>
+
+<a href="https://yandex.ru/maps/?text=ул. Лазурная 39" target="_blank">
+<div class="map-btn">Открыть в Яндекс Картах</div>
+</a>
+
+<!-- Программа -->
+<div class="section-title">Программа</div>
+
+<div class="timeline">
+<span>17:00</span> Сбор гостей
+<span>18:00</span> Церемония
+<span>18:30</span> Банкет
+</div>
+
+<!-- Фото 5 -->
+<div class="polaroid fade">
+<img src="https://disk.yandex.ru/i/9qYi8fOlZ8N-ag">
+</div>
+
+<!-- Пожелания -->
+<div class="section-title">Пожелания</div>
+<div class="wish-box">
+Мы не будем оригинальными, но будем практичными. Лучший для нас подарок — это ваша денежная инвестиция в нашу молодую семью.<br><br>
+Просим не отягощать себя выбором цветов, наилучший подарок для нас — это ваше присутствие и тёплые слова.<br><br>
+Будем благодарны за сохранение уютного семейного вечера и отсутствие криков "Горько"
+</div>
+
+<!-- Анкета -->
+<div class="section-title">Анкета гостя</div>
+
+<div class="text">
+Мы очень стараемся сделать праздник незабываемым, поэтому будем рады, если вы подтвердите своё присутствие и заполните анкету ниже, чтобы мы учли все детали
+</div>
+
+<form id="form">
+
+<input name="name" placeholder="Ваше имя" required>
+
+<select name="attend">
+<option>Да</option>
+<option>Нет</option>
+</select>
+
+<select name="count">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<select name="alcohol">
+<option>Вино белое</option>
+<option>Вино красное</option>
+<option>Шампанское</option>
+<option>Водка</option>
+</select>
+
+<div class="button" onclick="send()">Отправить</div>
+
+</form>
+
+</div>
+
+<script>
+
+/* Таймер */
+const date = new Date("2026-06-26T17:00:00");
+
+setInterval(()=>{
+let now = new Date();
+let diff = date - now;
+
+document.getElementById("d").innerHTML = Math.floor(diff/(1000*60*60*24));
+document.getElementById("h").innerHTML = Math.floor(diff/(1000*60*60)%24);
+document.getElementById("m").innerHTML = Math.floor(diff/(1000*60)%60);
+document.getElementById("s").innerHTML = Math.floor(diff/1000%60);
+},1000);
+
+/* Анимация */
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll', ()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-50){
+el.classList.add('visible');
+}
+});
+});
+
+/* Отправка */
+function send(){
+const form = document.getElementById("form");
+
+fetch("https://sheet.best/api/sheets/ВАШ_ID",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+name:form.name.value,
+attend:form.attend.value,
+count:form.count.value,
+alcohol:form.alcohol.value
+})
+}).then(()=>alert("Ответ сохранён 💛"));
+}
+
+</script>
+
+</body>
+</html>
