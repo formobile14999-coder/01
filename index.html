@@ -288,7 +288,7 @@ input, select {
 </div>
 
 <div class="text">
-г. Владивосток, ул.Лазурная 39, ст 1<br>
+г. Владивосток, ул. Лазурная 39, ст 1<br>
 Терраса номер 3/купол
 </div>
 
@@ -417,15 +417,7 @@ form.reset();
 }
 
 function closeThanks(){
-document.getElementById('thankyou').classList.remove('active');
-},
-body:JSON.stringify({
-name:form.name.value,
-attend:form.attend.value,
-count:form.count.value,
-alcohol:form.alcohol.value
-})
-}).then(()=>alert("Ответ сохранён 💛"));
+    document.getElementById('thankyou').classList.remove('active');
 }
 </script>
 
