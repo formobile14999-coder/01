@@ -134,7 +134,6 @@ body {
 }
 
 .text {
-    font-family: 'Lovelace', serif;
     text-align: center;
     font-size: 15px;
     line-height: 1.7;
@@ -277,8 +276,8 @@ input, select {
 <div class="section-title">Дорогие гости</div>
 
 <div class="text fade">
-Мы будем счастливы разделить с вами радость неповторимого для нас дня - дня нашей свадьбы!<br>
-Приглашаем вас присоединиться к нашему празднику и украсить его своим присутствием 26-го июня!
+Мы будем счастливы разделить с вами радость нашего свадебного дня!<br>
+Приглашаем вас присоединиться к нашему празднику 26 июня!
 </div>
 
 <div class="section-title">Место проведения</div>
@@ -288,8 +287,9 @@ input, select {
 </div>
 
 <div class="text">
-г. Владивосток, ул. Лазурная 39, ст 1<br>
-Терраса номер 3/купол
+г. Владивосток<br>
+ул. Лазурная 39<br>
+Терраса №3 / купол
 </div>
 
 <a href="https://yandex.ru/maps/?text=Владивосток Лазурная 39" target="_blank">
@@ -311,9 +311,8 @@ input, select {
 <div class="section-title">Пожелания</div>
 
 <div class="wish-box">
-Мы не будем оригинальными, но будем практичными. Лучший для нас подарок — это ваша денежная инвестиция в нашу молодую семью.<br><br>
-Просим не отягощать себя выбором цветов, наилучший подарок для нас — это ваше присутствие и тёплые слова.<br><br>
-Будем благодарны за сохранение уютного семейного вечера и отсутствие криков "Горько"
+Лучший подарок — ваше присутствие и поддержка 💛<br><br>
+Будем благодарны за уютную атмосферу и отсутствие криков "Горько"
 </div>
 
 <div class="section-title">Анкета гостя</div>
@@ -417,7 +416,15 @@ form.reset();
 }
 
 function closeThanks(){
-    document.getElementById('thankyou').classList.remove('active');
+document.getElementById('thankyou').classList.remove('active');
+},
+body:JSON.stringify({
+name:form.name.value,
+attend:form.attend.value,
+count:form.count.value,
+alcohol:form.alcohol.value
+})
+}).then(()=>alert("Ответ сохранён 💛"));
 }
 </script>
 
